@@ -45,14 +45,19 @@ public class UserService {
         if (user.getId() == 0) {
             this.userRes.save(user);
         } else {
-            User userUpdated = this.userRes.findById(user.getId()).get();
-            String img = userUpdated.getImages();
-            userUpdated = user;
+            User userUpdate = this.userRes.findById(user.getId()).get();
+            String img = userUpdate.getImages();
+            String password = userUpdate.getPassword();
+            user.setPassword(password);
+
+            // set new info into userUpdate
+            userUpdate = user;
+
             // unchanged image
             if (user.getImages() == null || user.getImages().equals("")) {
-                userUpdated.setImages(img);
+                userUpdate.setImages(img);
             }
-            this.userRes.save(userUpdated);
+            this.userRes.save(userUpdate);
         }
 
     }

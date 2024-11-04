@@ -2,22 +2,23 @@
     <div class="container">
         <div class="inner-wrap">
             <ul class="items">
-                <a href="#">
+                <a href="/admin">
+                    <li class="item">
+                        Dashboard
+                    </li>
+                </a>
+                <a href="/admin/user">
                     <li class="item">
                         User
                     </li>
                 </a>
 
-                <a href="#">
+                <a href="/admin/article">
                     <li class="item">
                         Article
                     </li>
                 </a>
-                <a href="#">
-                    <li class="item">
-                        User
-                    </li>
-                </a>
+
                 <a href="#">
                     <li class="item">
                         User

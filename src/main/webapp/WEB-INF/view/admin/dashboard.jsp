@@ -23,32 +23,14 @@
 
         <body>
             <!-- sidebar -->
-            <div class="nav"
-                style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
-                <div class="container">
-                    <div class="inner-wrap">
-                        <ul class="items">
-                            <a href="/">
-                                <li class="item">
-                                    Home
-                                </li>
-                            </a>
-
-                            <a href="/login">
-                                <li class="item">
-                                    Login
-                                </li>
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="../admin/layout/nav.jsp" />
             <!-- sidebar -->
-
+            <!-- data-->
+            <!-- data-->
             <ul class="text-center mt-5">
                 <li>
                     <h1>
-                        Hello
+                        Welcome to admin
                     </h1>
                 </li>
                 <li>
@@ -62,19 +44,6 @@
                     </h1>
                 </li>
             </ul>
-            <div class="container d-flex flex-wrap justify-content-between">
-                <c:forEach var="it" items="${articles}">
-                    <div class="card text-white bg-dark mb-3" style="width: 100%">
-                        <div class="card-header">NEWS</div>
-                        <div class="card-body">
-                            <h5 class="card-title">${it.title}</h5>
-                            <p class="card-text">${it.publishingDate}</p>
-                        </div>
-                    </div>
-                </c:forEach>
-
-            </div>
-
         </body>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

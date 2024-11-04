@@ -1,5 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
     <!doctype html>
     <html lang="en">
 
@@ -16,7 +15,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="/css/style.css">
 
-        <title>Admin-User</title>
+        <title>Admin-Article</title>
     </head>
 
     <body>
@@ -25,14 +24,14 @@
         <!-- sidebar -->
         <!-- data-->
         <div class="container" style="margin-top:50px;">
-            <h4 class="alert alert-danger">Do you want to delete user have id: ${id}</h4>
+            <h4 class="alert alert-danger">Do you want to delete article have id: ${id}</h4>
             <div class="d-flex">
-                <form:form action="/admin/user/delete" method="post" class="">
-
+                <form:form action="/admin/article/delete" method="post" class="d-inline">
                     <input type="hidden" name="id" value="${id}">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form:form>
-                <a href="/admin/user" class="btn btn-success" style="margin-left: 20px;">Back</a>
+
+                <a href="/admin/article" class="btn btn-success" style="margin-left: 20px;">Back</a>
             </div>
 
         </div>

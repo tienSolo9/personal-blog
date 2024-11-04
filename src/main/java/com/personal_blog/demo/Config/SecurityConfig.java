@@ -56,7 +56,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/", "/login", "/register", "/client/**", "/css/**", "/images/**", "/js/**")
+                        .permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .csrf(Customizer.withDefaults())
                 .formLogin(formLogin -> formLogin
