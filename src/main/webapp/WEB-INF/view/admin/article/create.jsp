@@ -35,6 +35,15 @@
                         </div>
                         <div class="card" style="width:50%;margin: 0 auto;background-color: azure;padding:30px;">
                             <form:form action="/admin/article/create" method="post" modelAttribute="article">
+                                <c:set var="titleE">
+                                    <form:errors path="title" />
+                                </c:set>
+                                <c:set var="publishingDateE">
+                                    <form:errors path="publishingDate" />
+                                </c:set>
+                                <c:set var="contentE">
+                                    <form:errors path="content" />
+                                </c:set>
                                 <c:if test="${ not empty id}">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Id</label>
@@ -48,22 +57,26 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Title</label>
                                     <div class="col-sm-9">
-                                        <form:input class="form-control" placeholder="Title" path="title" />
+                                        <form:input class="form-control ${not empty titleE?'is-invalid':''}"
+                                            placeholder="Title" path="title" />
+                                        <form:errors path="title" cssClass="invalid-feedback" />
                                     </div>
+
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Publish Date</label>
                                     <div class="col-sm-9">
-                                        <form:input class="form-control" placeholder="/dd/mm/yyyy" type="text"
-                                            path="publishingDate" />
+                                        <form:input class="form-control ${not empty publishingDateE?'is-invalid':''}"
+                                            placeholder="/dd/mm/yyyy" type="text" path="publishingDate" />
+                                        <form:errors path="publishingDate" cssClass="invalid-feedback" />
                                     </div>
-                                </div>
 
+                                </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Content</label>
                                     <div class="col-sm-9">
-                                        <form:textarea path="content" rows="10" style="width:100%" />
+                                        <form:textarea path="content" rows="10" class="" style="width:100%" />
                                     </div>
                                 </div>
                                 <button type="submit" class="btn" style="margin-top: 10px;">

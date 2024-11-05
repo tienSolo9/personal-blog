@@ -1,9 +1,20 @@
 package com.personal_blog.demo.DTO;
 
+import com.personal_blog.demo.Service.validation.VRegister;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
+@VRegister
 public class RegisterDTO {
+    @NotEmpty(message = "User must not be empty")
     private String username;
+
+    @NotNull
+    @NotEmpty(message = "Password has at least 6 character")
     private String password;
-    private String confirmPasword;
+
+    private String confirmPassword;
 
     public String getUsername() {
         return username;
@@ -21,12 +32,12 @@ public class RegisterDTO {
         this.password = password;
     }
 
-    public String getConfirmPasword() {
-        return confirmPasword;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setConfirmPasword(String confirmPasword) {
-        this.confirmPasword = confirmPasword;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
 }

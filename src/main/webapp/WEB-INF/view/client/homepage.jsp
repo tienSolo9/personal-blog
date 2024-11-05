@@ -33,12 +33,21 @@
                                     Home
                                 </li>
                             </a>
+                            <c:if test="${empty username}">
+                                <a href="/login">
+                                    <li class="item">
+                                        Login
+                                    </li>
+                                </a>
+                            </c:if>
 
-                            <a href="/login">
-                                <li class="item">
-                                    Login
-                                </li>
-                            </a>
+                            <c:if test="${not empty username}">
+                                <a href="#">
+                                    <li class="item">
+                                        <small>welcome: ${username}</small>
+                                    </li>
+                                </a>
+                            </c:if>
                         </ul>
                     </div>
                 </div>

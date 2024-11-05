@@ -10,6 +10,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -19,8 +21,16 @@ public class User {
     private long id;
 
     private String username;
+    @NotNull
+    @NotEmpty(message = "Password must be greater than 5 character")
     private String password;
+
+    // @NotNull
+    // @NotEmpty(message = "Name must be greater than 3 character")
     private String fullname;
+
+    // @NotNull
+    // @NotEmpty(message = "Password must be greater than 3 character")
     private String address;
     private String images;
 

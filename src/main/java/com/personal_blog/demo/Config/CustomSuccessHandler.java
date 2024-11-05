@@ -14,6 +14,7 @@ import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.personal_blog.demo.Repository.UserRes;
+import com.personal_blog.demo.domain.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -69,5 +70,8 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
             return;
         }
         session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+
+        User user = userRepository.findByUsername(authentication.getName());
+        session.setAttribute("username", user.getUsername());
     }
 }

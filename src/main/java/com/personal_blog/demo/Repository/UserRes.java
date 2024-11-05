@@ -12,4 +12,6 @@ public interface UserRes extends JpaRepository<User, Long> {
     Page<User> findAll(Pageable pageable);
 
     User findByUsername(String username);
+
+    boolean existsByUsername(String username);
 }

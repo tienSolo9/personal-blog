@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import com.personal_blog.demo.DTO.ParamDTO;
 import com.personal_blog.demo.Service.ArticleService;
 import com.personal_blog.demo.domain.Article;
 import com.personal_blog.demo.util.CheckParam;
+
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -71,7 +74,13 @@ public class ArticleController {
     }
 
     @PostMapping("/admin/article/create")
-    public String createOrUpdateArticle(Model model, @ModelAttribute("article") Article article) {
+    public String createOrUpdateArticle(Model model,
+            @ModelAttribute("article") @Valid Article article,
+            BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "admin/article/create";
+        }
         this.articleService.handleCreate(article);
         return "redirect:/admin/article";
     }

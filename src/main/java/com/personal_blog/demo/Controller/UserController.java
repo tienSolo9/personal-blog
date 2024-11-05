@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,9 @@ import com.personal_blog.demo.DTO.ParamDTO;
 import com.personal_blog.demo.Service.UserService;
 import com.personal_blog.demo.domain.User;
 import com.personal_blog.demo.util.CheckParam;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -71,7 +75,9 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/create")
-    public String handleCreate(@ModelAttribute("user") User user, @RequestParam("myFile") MultipartFile file) {
+    public String handleCreate(@ModelAttribute("user") User user,
+            @RequestParam("myFile") MultipartFile file) {
+
         this.userService.newUser(user, file);
         return "redirect:/admin/user";
     }
