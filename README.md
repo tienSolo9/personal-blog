@@ -9,7 +9,7 @@
 - **Authentication & Authorization**: Role-based access control with Spring Security.
 - **Pagination**: Pagination for displaying lists.
 - **Image Upload**: Upload and manage images.
-
+- **CRUD** : user, article
 ## Install
 - **Step 1** : Clone project 
 - **Step 2** : Run database in my sql
