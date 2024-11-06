@@ -53,6 +53,13 @@ public class ArticleController {
         return "admin/article/detail";
     }
 
+    @GetMapping("/article/{id}")
+    public String getArticleDetailClient(Model model, @PathVariable long id) {
+        Article article = this.articleService.fetchById(id);
+        model.addAttribute("article", article);
+        return "client/detail";
+    }
+
     @GetMapping("/admin/article/create")
     public String getArticleCreate(Model model) {
         model.addAttribute("article", new Article());

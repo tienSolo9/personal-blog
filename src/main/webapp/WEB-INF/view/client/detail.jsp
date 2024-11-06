@@ -18,7 +18,7 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link rel="stylesheet" href="/css/style.css">
 
-            <title>Admin-User</title>
+            <title>Detail</title>
         </head>
 
         <body>
@@ -54,64 +54,24 @@
             </div>
             <!-- sidebar -->
 
-            <ul class="text-center mt-5">
-                <li>
-                    <h1>
-                        Hello
-                    </h1>
-                </li>
-                <li>
-                    <h2>
-                        It's my first project
-                    </h2>
-                </li>
-                <li>
-                    <h1>
-                        <div class="fa-brands fa-java mt-5" style="font-size:100px"></div>
-                    </h1>
-                </li>
-            </ul>
-
-            <div class="container d-flex flex-wrap justify-content-between" style="margin-bottom: 300px;">
-                <c:if test="${totalPage > 0}">
-                    <nav aria-label="Page navigation example" style="">
-                        <ul class="pagination">
-                            <li class="page-item  ${currentPage eq 1 ? 'disabled':''}">
-                                <a class="page-link" href="?page=${currentPage-1}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <c:forEach begin="0" end="${totalPage - 1}" varStatus="s">
-                                <li class="page-item">
-                                    <a class="page-link" href="?page=${s.index+1}">${s.index+1}</a>
-                                </li>
-                            </c:forEach>
-
-                            <li class="page-item  ${currentPage eq totalPage? 'disabled':''}">
-                                <a class="page-link" href="?page=${currentPage+1}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </c:if>
-                <c:forEach var="it" items="${articles}">
-                    <div class="card text-white bg-dark mb-3" style="width: 100%">
-                        <div class="card-header">NEWS</div>
-                        <div class="card-body">
-                            <a href="/article/${it.id}">
-                                <h5 class="card-title" style="color:#fff">${it.title}</h5>
-                            </a>
-
-                            <p class="card-text">${it.publishingDate}</p>
+            <!-- data-->
+            <div class="user-detail">
+                <div class="container">
+                    <div class="inner-wrap">
+                        <div style="margin-top:30px;text-align: left;">
+                            <h1 style="font-size:52px">${article.title}</h1>
+                            <h4>${article.publishingDate}</h4>
+                        </div>
+                        <div class="content mt-5" style="font-size:24px">
+                            ${article.content}
                         </div>
                     </div>
-                </c:forEach>
-
+                    <a class="btn btn-warning mt-5" style="margin-top: 10px;color:white" href="/">
+                        Back
+                    </a>
+                </div>
             </div>
-
+            <!-- data-->
         </body>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
