@@ -5,7 +5,7 @@
 
 ## Features
 - **Login/Logout**: Secure login and logout functionality.
-- **Validation**: Custom validation for form data.
+- **Validation**: Custom validation and default
 - **Authentication & Authorization**: Role-based access control with Spring Security.
 - **Pagination**: Pagination for displaying lists.
 - **Image Upload**: Upload and manage images.
